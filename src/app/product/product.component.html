@@ -1,0 +1,18 @@
+<mat-card class="card" appearance = 'outlined' (click)="goToProduct(Product)">
+    <mat-card-header>
+      <mat-card-title style="width: 100%; font-size: larger;">{{getProductName()}}</mat-card-title>
+      <mat-card-subtitle style="width: 100%;">{{getProductDescription()}}</mat-card-subtitle>
+    </mat-card-header >
+    <img class="cardImage" src="{{getProductLink(Product)}}" >
+    
+    <h3 style="text-align: center; flex:1;" [ngStyle]="{'color':getOfferColor()}">
+      {{currency.name}} {{getProductPrice()}}
+      <del style="text-align: center; flex:1;" *ngIf="getIsOffer()">{{getProductPriceBeforeOffer()}}</del>
+    </h3>
+    <mat-card-actions style="margin: auto;">
+      <button mat-raised-button color="accent" (click)="addToCart(Product)">
+        <mat-icon style="display:inline; margin-right: 5px;" aria-hidden="false" aria-label="Example home icon" color="primary">add_shopping_cart</mat-icon>
+        <span style="font-size:large;">{{translateText("addToCart")}}</span>
+      </button>
+    </mat-card-actions>
+</mat-card>

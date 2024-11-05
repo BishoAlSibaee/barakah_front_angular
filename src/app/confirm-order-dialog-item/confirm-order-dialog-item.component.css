@@ -1,0 +1,40 @@
+.container {
+   width: 100%;
+   border-radius: 10px;
+   display: block;
+}
+
+.imgDiv {
+    width: 15%;
+    height: 100%;
+    margin: auto;
+    display: inline-block;
+}
+
+img {
+    width: 70px; height: 70px; border-radius: 10px;
+}
+
+.nameDiv {
+    width: 30%;
+    height: 100%;
+    margin: auto;
+    display: inline-block;
+    text-align: center;
+}
+
+ .quantityDiv {
+    width: 15%;
+    height: 100%;
+    margin: auto;
+    display: inline-block;
+    text-align: center;
+ }
+
+.priceDiv {
+    width: 20%;
+    height: 100%;
+    margin: auto;
+    display: inline-block;
+    text-align: center;
+}

@@ -1,0 +1,14 @@
+.productaList {
+    list-style-type: none; 
+    width: 100%; 
+    position: absolute;
+    top: 140px;
+    left: 0;
+}
+
+.products { 
+    height:fit-content;
+    width: fit-content;
+    float: left;
+    margin: 2px;
+}

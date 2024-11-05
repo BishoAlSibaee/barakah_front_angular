@@ -1,0 +1,70 @@
+<app-main-page-header></app-main-page-header>
+<div class="container" [ngStyle]="{'direction': getDirection()}">
+    <div style="float: left; margin-top: 10px; direction: ltr;">
+        <button mat-stroked-button (click)="back()">
+          <mat-icon>home</mat-icon>
+          {{translateText("home")}}
+        </button>
+    </div>
+    <div style="margin-top: 100px;">
+        <h2>
+            {{translateText("deliveryTime")}}
+        </h2>
+        <h2>
+            {{getDeliveryDescription(StoreDelivery)}}
+        </h2>
+    </div>
+    <div style="margin-top: 120px; width:70%; height: fit-content; margin: auto; background-color: white; border-radius: 10px; padding: 20px;">
+        <h2>{{translateText("deliveryAddress")}}</h2>
+        <button mat-flat-button color="primary" (click)="addAddressShowHide()">{{translateText("addNewAddress")}}</button>
+        <p *ngIf="Addresses.length == 0">
+            لا يوجد لديك عناوين مضافة
+        </p>
+        <p style="color: darkred;">{{Message}}</p>
+
+        <div style="margin-top: 20px;" *ngIf="addAddressVisible">
+            <mat-form-field  style="width: 100%;">
+                <mat-label>Country</mat-label>
+                <mat-select [(ngModel)]="Country">
+                  <mat-option *ngFor="let country of countries" [value]="country" >{{country.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field style="width: 100%;">
+                <mat-label>المدينة</mat-label>
+                <input matInput type="email" [(ngModel)]="city">
+            </mat-form-field>
+            <mat-form-field style="width: 100%;">
+                <mat-label>الحي</mat-label>
+                <input matInput type="email" [(ngModel)]="area">
+            </mat-form-field>
+            <mat-form-field style="width: 100%;">
+                <mat-label>الشارع</mat-label>
+                <input matInput type="email" [(ngModel)]="street">
+            </mat-form-field>
+            <mat-form-field style="width: 100%;">
+                <mat-label>العنوان كامل</mat-label>
+                <input matInput type="email" [(ngModel)]="fullAddress">
+            </mat-form-field>
+            <mat-form-field style="width: 100%;">
+                <mat-label>رقم المبنى</mat-label>
+                <input matInput type="email" [(ngModel)]="buildingNumber">
+            </mat-form-field>
+            <mat-form-field style="width: 100%;">
+                <mat-label>علامة مميزة</mat-label>
+                <input matInput type="email" [(ngModel)]="landmark">
+            </mat-form-field>
+            <button mat-flat-button color="primary" (click)="addAddress()">اضافة</button>
+        </div>
+
+        <div style="width: 100%; display: block;" *ngIf="Addresses.length > 0">
+            <ul style="width: 100%; height: fit-content;" style="list-style-type: none;" >
+                <li *ngFor="let address of Addresses; let i = index">
+                    <app-address-unit [data]="address" (click)="selectAddress(address)" [id]="'add'+i"></app-address-unit>
+                </li>
+            </ul>
+        </div>
+        <div style="width: 100%; display: block;" *ngIf="Addresses.length > 0"> 
+            <button mat-flat-button color="primary" style="font-size: larger; width: 100%;" (click)="continueCheckout()">{{translateText("continuePurchase")}}</button>
+        </div>
+    </div>
+</div>

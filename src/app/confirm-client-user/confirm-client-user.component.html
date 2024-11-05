@@ -1,0 +1,40 @@
+<app-main-page-header></app-main-page-header>
+<div class="container">
+    <div style="width: 50%; margin: auto; margin-top: 100px;">
+
+        <h2>التسجيل</h2>
+        <h4>يجب تسجيل المستخدم ليتم حفظ حسابك لدينا لاستخدامه مستقبلاً </h4>
+        <h4>يستغرق دقيقتين فقط</h4>
+        <mat-form-field style="width: 100%;">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" [formControl]="emailFormControl" [(ngModel)]="email">
+            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                Please enter a valid email address
+              </mat-error>
+              <mat-error *ngIf="emailFormControl.hasError('required')">
+                Email is <strong>required</strong>
+              </mat-error>
+        </mat-form-field>
+        <mat-form-field style="width: 100%;">
+            <mat-label>Name</mat-label>
+            <input matInput type="text" [(ngModel)]="name">
+        </mat-form-field>
+        <mat-form-field style="width: 100%;">
+            <mat-label>Mobile</mat-label>
+            <input matInput type="text" [(ngModel)]="mobile" maxlength="10" minlength="10" required >
+            <mat-error *ngIf="mobile.length < 10 || mobile.length > 10">ادخل رقم جوال صحيح</mat-error>
+        </mat-form-field>
+        <mat-form-field style="width: 100%;">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" [(ngModel)]="password">
+        </mat-form-field>
+        <mat-form-field style="width: 100%;">
+            <mat-label>Confirm Password</mat-label>
+            <input matInput type="password" [(ngModel)]="passwordConfirm">
+        </mat-form-field>
+
+        <h3 style="color: darkred;">{{Message}}</h3>
+
+        <button mat-raised-button color="primary" (click)="confirmClientUser()">signup</button>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+.example-spacer {
+    flex: 1 1 auto;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+  }
+
+button {
+  background-color: transparent;
+  outline: hidden;
+  border: none;
+	padding: 0;
+  margin-right: 10px;
+}
+
+.input-icons i {
+  position: absolute;
+}
+
+.input-icons {
+  position: relative;
+  left: 50%;
+  translate: -100%;
+}
+
+.cart {
+  animation-name: cartAnimation;
+  animation-duration: 1s;
+}
+
+@keyframes cartAnimation {
+  0% {translate: 0 0}
+  50% {translate: 0 -10px;}
+  100% {translate: 0 0;}
+}

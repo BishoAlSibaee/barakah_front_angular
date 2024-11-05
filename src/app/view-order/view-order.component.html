@@ -1,0 +1,32 @@
+<app-main-page-header></app-main-page-header>
+
+<div class="container" [ngStyle]="{'direction': getDirection()}">
+    <div style="float: left; margin-top: 10px; direction: ltr;">
+        <button mat-stroked-button (click)="back()">
+          <mat-icon>home</mat-icon>
+          {{translateText("home")}}
+        </button>
+    </div>
+
+    <div class="internalBox" *ngIf="order.products_count > 0">
+        <h1>{{translateText("order")}} {{translateText("number")}} {{order.id}}</h1>
+        <h4>{{translateText("date")}} {{getOrderTime()}}</h4>
+        <table class="table" >
+            <tr *ngFor="let item of order.orderitems">
+                <td>
+                    <app-order-item [data]="item" (click)="viewProduct(item)"></app-order-item>
+                </td>
+            </tr>
+        </table>
+        <br>
+        <mat-divider></mat-divider>
+        <div style="display: flex;">
+            <p style="flex: 1;">{{translateText("total")}}</p>
+            <p style="flex: 1;">{{order.amount}}</p>
+            <p style="flex: 1;">{{translateText("shippingFees")}}</p>
+            <p style="flex: 1;">{{order.shipping_fees}}</p>
+            <p style="flex: 1;">{{translateText("finalTotal")}}</p>
+            <p style="flex: 1;">{{order.final_amount}}</p>
+        </div>
+    </div>
+</div>

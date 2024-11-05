@@ -1,0 +1,31 @@
+<div class="container">
+    <app-main-page-header></app-main-page-header>
+
+    <div class="ads" *ngIf="adsVisibility">
+        <img src="{{adShow}}" style="width: 100%; height: inherit;"/>
+        <div class="rightImages" (click)="adsRight()"></div>
+        <div class="leftImages" (click)="adsLeft()"></div>
+    </div>
+
+    <ul class="sections" >
+        <li style="float: left; margin: 10px;" *ngFor="let section of Sections">
+            <button mat-flat-button (click)="getSectionProducts(section)">{{getSectionName(section)}}</button>
+        </li>
+    </ul>
+
+    <div class="search">
+        <!-- <mat-form-field appearance="fill"> -->
+            <!-- <mat-label>{{translate('search')}}</mat-label> -->
+            <input matInput (input)="searchProduct()" [(ngModel)]="searchWord" style="width:30x; height:40px; background: url(assets/images/search.png) no-repeat scroll 7px 7px; padding-left:40px;">
+            <!-- <mat-icon matSuffix>search</mat-icon> -->
+        <!-- </mat-form-field> -->
+    </div>
+
+
+
+    <ul class="productaList">
+        <li class="products" *ngFor="let product of Products">
+            <app-product [data]="product" ></app-product>
+        </li>
+    </ul>
+</div>

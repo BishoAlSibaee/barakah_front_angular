@@ -1,0 +1,39 @@
+<app-main-page-header></app-main-page-header>
+<div class="container" >
+    <div style="width: 35%; height: 100%; display: block; float: right;">
+        <div style="width: 20%; height: 100%; display: block; float: right;">
+            <mat-list role="list" *ngFor="let image of images">
+                <mat-list-item style="width: 100%; height: 50px;" role="listitem" (click)="imageClicked(image)" (mouseenter)="imageClicked(image)">
+                    <img src="{{image.link}}" style="width: 100%; height: 50px;"/>
+                </mat-list-item>
+            </mat-list>
+        </div>
+        <div style="width: 80%; height: 100%; display: block; float: right;">
+            <img style="width: 100%; height: 100%;" src="{{selectedImage?.link}}">
+        </div>
+    </div>
+    <div style="width: 65%; height: 100%; display: block; float: right; text-align: center; padding: 10px; box-sizing: border-box;">
+        <!-- details sections  -->
+        <div style="float: left; margin-top: 10px;">
+            <button mat-stroked-button (click)="back()">
+                <mat-icon>home</mat-icon>
+                {{translateText("home")}}
+            </button>
+        </div>
+            <h2>{{product?.local_name}} {{product?.name}}</h2>
+            <h4>{{product?.description}}</h4>
+            <h4>{{product?.local_description}}</h4>
+            <mat-divider></mat-divider>
+            <h1>{{variant.price}} {{currency?.code}}</h1>
+        <button mat-raised-button color="accent" (click)="addToCart()">
+            <mat-icon style="display:inline; margin-right: 5px;" aria-hidden="false" aria-label="Example home icon" color="primary">add_shopping_cart</mat-icon>
+            <span style="font-size: large;">{{translateText("addToCart")}}</span>
+        </button>
+        <mat-divider></mat-divider>
+        <mat-list role="list" *ngFor="let img of images">
+            <mat-list-item style="width: 100%; height: fit-content;" role="listitem">
+                <img class="allImages" src="{{img.link}}" />
+            </mat-list-item>
+        </mat-list>
+    </div>
+</div>

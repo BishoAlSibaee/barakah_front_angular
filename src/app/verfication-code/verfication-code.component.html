@@ -1,0 +1,20 @@
+<app-main-page-header></app-main-page-header>
+<div class="container">
+    <div style="width: 50%; margin: auto; margin-top: 100px;">
+
+        <h2>تأكيد الحساب</h2>
+        <h4>أدخل كود التفعيل الذي تم ارساله الى الايميل </h4>
+        <mat-form-field style="width: 100%;">
+            <mat-label>الايميل</mat-label>
+            <input matInput type="email" [(ngModel)]="email">
+        </mat-form-field>
+        <mat-form-field style="width: 100%;">
+            <mat-label>ادخل الكود</mat-label>
+            <input matInput type="text" [(ngModel)]="code">
+        </mat-form-field>
+
+        <h3 style="color: darkred;">{{Message}}</h3>
+
+        <button mat-raised-button color="primary" (click)="verifyClientUser()">التحقق</button>
+    </div>
+</div>

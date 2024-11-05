@@ -1,0 +1,43 @@
+<app-main-page-header></app-main-page-header>
+<div class="container" [ngStyle]="{'direction': getDirection()}">
+    <h2 mat-dialog-title style="width: 100%; text-align: center;">تاكيد الطلب</h2>
+    <div style="float: left; margin-top: 10px; direction: ltr;">
+        <button mat-stroked-button (click)="back()">
+          <mat-icon>home</mat-icon>
+          {{translate("home")}}
+        </button>
+    </div>
+    <div class="internalBox">
+        <h3>{{translate('deliveryAddress')}}</h3>
+        <app-address-unit [data]="address"></app-address-unit>
+    </div>
+
+    <div class="internalBox">
+        <h3>{{translate('paymentMethod')}}</h3>
+        <div style="width: 100%;border-radius: 10px;">
+            <p style="width: 100%;">{{getDeliveryTranslates(paymentMethod)}}</p>
+            <mat-icon style="width: 100%;">{{getPaymentIcon(paymentMethod)}}</mat-icon>
+        </div>
+    </div>
+
+    <div class="internalBox">
+        <h3>{{translate('cartItems')}}</h3>
+        <mat-dialog-content>
+            <table class="table" >
+                <tr *ngFor="let item of CartItems">
+                    <td>
+                        <app-confirm-order-dialog-item [data]="item"></app-confirm-order-dialog-item>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <mat-divider></mat-divider>
+            <h4 style="width: 100%; text-align: center;">{{translate('shippingFees')}}  {{deliveryCoast}}</h4>
+            <h4 style="width: 100%; text-align: center;">{{translate('finalTotal')}} {{getTotal()}}</h4>
+            <h5 style="color: red;">{{errorMessage}}</h5>
+        </mat-dialog-content>
+        <mat-dialog-actions style="display: flex;">
+            <button mat-raised-button color="primary" (click)="confirmOrder()" style="flex: 1;">{{translate('confirmOrder')}}</button>
+        </mat-dialog-actions>
+    </div>
+</div>

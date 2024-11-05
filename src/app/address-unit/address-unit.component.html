@@ -1,0 +1,31 @@
+<div class="container" (click)="addressClicked()" [ngStyle]="{'border': setBorder()}">
+    <div style="width: 20%;">
+        <mat-checkbox [checked]="select()" style="width: 100%;" [id]="'a'+address.id"></mat-checkbox>
+    </div>
+    <div style="width: 80%;">
+        <div style="width: 33%; display: inline-block;">
+            <p style="display: inline-block; font-size: larger; font-weight: bold;">{{translate('city')}}:</p>
+            <p style="display: inline-block; margin-left: 10px; margin-right: 10px;  font-size: larger;  font-weight: bold;">{{address.city}}</p>
+        </div>
+        <div style="width: 33%; display: inline-block;">
+            <p style="display: inline-block; font-size: larger; font-weight: bold;">{{translate('name')}}:</p>
+            <p style="display: inline-block; margin-left: 10px; margin-right: 10px; font-size: larger; font-weight: bold;">{{address.client.name}}</p>
+        </div>
+        <div style="width: 33%; display: inline-block;">
+            <p style="display: inline-block; font-size: larger; font-weight: bold;">{{translate('mobile')}}:</p>
+            <p style="display: inline-block; margin-left: 10px; margin-right: 10px; font-size: larger; font-weight: bold;">{{address.client.mobile}}</p>
+        </div>
+        <div style="width: 50%; display: inline-block;">
+            <p style="display: inline-block;">{{translate('street')}}:</p>
+            <p style="display: inline-block; margin-left: 10px; margin-right: 10px;">{{address.street}}</p>
+        </div> 
+        <div style="width: 50%; display: inline-block;">
+            <p style="display: inline-block;">{{translate('building')}} {{translate('number')}}:</p>
+            <p style="display: inline-block; margin-left: 10px; margin-right: 10px;">{{address.building}}</p>
+        </div> 
+        <div style="width: 100%; display: inline-block;">
+            <p style="display: inline-block;">{{translate('fullAddress')}}:</p>
+            <p style="display: inline-block; margin-left: 10px; margin-right: 10px;">{{address.fulladdress}}</p>
+        </div>
+    </div> 
+</div>

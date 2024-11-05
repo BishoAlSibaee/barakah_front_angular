@@ -1,0 +1,19 @@
+<app-main-page-header></app-main-page-header>
+<div class="container">
+    <h3>{{translateText("myOrders")}}</h3>
+    <div style="float: left; margin-top: 10px;">
+        <button mat-stroked-button (click)="back()">
+          <mat-icon>home</mat-icon>
+          {{translateText("home")}}
+        </button>
+    </div>
+
+    <div class="internalBox">
+        <ul class="list" >
+            <li class="listItem" *ngFor="let order of Orders">
+                <app-my-order-unit [data]="order" (click)="viewOrder(order)" ></app-my-order-unit>
+            </li>
+        </ul>
+    </div>
+    
+</div>

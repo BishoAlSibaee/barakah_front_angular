@@ -1,0 +1,18 @@
+.container {
+    width: 100%;
+    display: block;
+    height: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+.table {
+    border: solid 1px black;
+    margin: 0 auto;
+    width: 80%;
+}
+
+td {
+    border: solid 1px black;
+    width: 100%;
+}

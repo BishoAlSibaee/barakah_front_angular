@@ -1,0 +1,19 @@
+.container {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+}
+
+.container :hover {
+    opacity: 80%;
+}
+
+.leftSide {
+    flex: 1;
+}
+
+.rightSide {
+    flex: 2;
+}

@@ -1,0 +1,29 @@
+<app-main-page-header></app-main-page-header>
+
+<div class="container" [ngStyle]="{'direction': getDirection()}">
+    <h2 style="margin-top: 100px; color: brown;" *ngIf="CartItems.length == 0">{{caption}}</h2>
+
+    <div style="float: left; margin-top: 10px; direction: ltr;">
+        <button mat-stroked-button (click)="back()">
+          <mat-icon>home</mat-icon>
+          {{translateText("home")}}
+        </button>
+    </div>
+
+    <div style="width: 70%; margin: auto;" *ngIf="CartItems.length > 0">
+        <h1>{{translateText("cart")}}</h1>
+        <table class="table" >
+            <tr *ngFor="let item of CartItems">
+                <td>
+                    <app-cart-item [data]="item"></app-cart-item>
+                </td>
+            </tr>
+        </table>
+        <br>
+        <mat-divider></mat-divider>
+        <br>
+        <div>
+            <button mat-flat-button color="primary" style="font-size: larger; width: 100%;" (click)="continueCheckout()">{{translateText("continuePurchase")}}</button>
+        </div>
+    </div>
+</div>

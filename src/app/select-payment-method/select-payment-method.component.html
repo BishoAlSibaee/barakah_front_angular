@@ -1,0 +1,30 @@
+<app-main-page-header></app-main-page-header>
+<div class="container">
+    <div style="float: left; margin-top: 10px; direction: ltr;">
+        <button mat-stroked-button (click)="back()">
+          <mat-icon>home</mat-icon>
+          {{translateText("home")}}
+        </button>
+    </div>
+    <div>
+        <h2>
+            {{translateText("paymentMethod")}}
+        </h2>
+    </div>
+    <div class="internalBox">
+        <h3>{{translateText("selectPaymentMethod")}}</h3>
+        <ul style="padding: 30px; box-sizing: border-box;">
+            <li style="list-style-type: none; width: 100%; display: block;" *ngFor="let p of PaymentMethods; let i = index">
+                <div style="width: 49%; float: left; border-radius: 10px;" (click)="setPaymentProvider(i)" [id]="'x'+i">
+                    <p style="width: 100%;">{{getDeliveryTranslates(p)}}</p>
+                    <mat-icon style="width: 100%;">{{getPaymentIcon(p)}}</mat-icon>
+                </div>
+            </li>
+        </ul>
+        <br><br><br>
+        <div style="margin-top: 20px;">
+            <button mat-flat-button color="primary" style="font-size: larger; width: 100%;" (click)="continueCheckout()">{{translateText("continuePurchase")}}</button>
+        </div>
+    </div>
+    
+</div>

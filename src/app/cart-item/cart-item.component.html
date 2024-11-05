@@ -1,0 +1,37 @@
+<div class="container" >
+    <div style="flex:1; justify-content: center; display: flex;">
+        <img src="{{getItemImage()}}" style="width:50%; margin: auto; border-radius: 10px;">
+    </div>
+    
+    <div style="flex:2;">
+        <div style="width: 100%; display: inline; margin: auto;">
+            <h3>
+                {{Item.product?.name}} {{Item.product?.local_name}}
+            </h3>
+            <p>
+                {{Item.product?.description}} {{Item.product?.local_description}}
+            </p>
+            
+        </div>
+        <mat-divider></mat-divider>
+        <div style="width: 100%; display: flex; margin: auto;">
+            <div style="width: 50%;flex: 1;">
+                <span style="font-size: large; font-weight: bold;">{{translateText("quantity")}}</span>
+                <div style="margin-top: 10px;">
+                    <button style="display: inline; margin-left: 10px; margin-right: 10px;" (click)="increaseQuantity()">+</button>
+                    <p style="display: inline; margin-left: 10px; margin-right: 10px;">{{Item.quantity}}</p>
+                    <button style="display: inline; margin-left: 10px; margin-right: 10px;" (click)="decreaseQuantity()">-</button>
+                </div>
+            </div>
+    
+            <div style="width: 50%; flex: 1;">
+                <span style="font-size: large; font-weight: bold;">
+                    {{translateText("price")}}
+                </span>
+                <p style="font-size: large; font-weight: bold;" [ngStyle]="{'color':getOfferColor()}">
+                    <del *ngIf="getIsOffer()" style="margin-left: 5px; margin-right: 5px;">{{Item.variant?.price}}</del>{{getItemPrice(Item)}}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

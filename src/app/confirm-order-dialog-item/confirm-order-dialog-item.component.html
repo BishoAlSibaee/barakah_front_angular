@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="imgDiv">
+        <img src="{{getItemImage()}}">
+    </div>
+    
+    <div class="nameDiv">
+        <span>
+            {{Item.product?.name}} {{Item.product?.local_name}}
+        </span>
+    </div>
+
+    <div class="quantityDiv">
+        <span>
+            {{translateText("quantity")}} {{Item.quantity}}
+        </span>
+    </div>
+
+    <div class="priceDiv" [ngStyle]="{'color':getOfferColor()}">
+        <span>
+            {{translateText("price")}} 
+            <del *ngIf="getIsOffer()">{{Item.variant?.price}}</del>
+            {{getItemPrice(Item)}}
+        </span>
+    </div>
+
+    <div class="priceDiv" [ngStyle]="{'color':getOfferColor()}">
+        <span>
+            {{translateText("total")}}
+            
+             {{getItemTitalPrice(Item)}}
+        </span>
+    </div>
+</div>

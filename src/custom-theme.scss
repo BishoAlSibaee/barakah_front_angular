@@ -1,0 +1,47 @@
+
+@use '@angular/material' as mat;
+@include mat.core();
+
+$myPalette: (
+ 50: #e8eaf6,
+ 100: #c5cae9,
+ 200: #9fa8da,
+ 300: #7986cb,
+ 400: #5462a8,
+ 500: #354283,
+ 600: #1c2a6e,
+ 700: rgb(11, 21, 73),
+ 800: #0d1434,
+ 900: rgb(3, 10, 40),
+ contrast: (
+   50: rgba(black, 0.87),
+   100: rgba(black, 0.87),
+   200: rgba(black, 0.87),
+   300: white,
+   400: white,
+   500:white,
+   600: white,
+   700: white,
+   800: white,
+   900: white,
+ )
+);
+
+$Barakeh-primary: mat.define-palette($myPalette,500);
+$Barakeh-accent: mat.define-palette($myPalette, 200);
+
+
+$Barakeh-warn: mat.define-palette(mat.$red-palette);
+
+
+$Barakeh-theme: mat.define-light-theme((
+  color: (
+    primary: $Barakeh-primary,
+    accent: $Barakeh-accent,
+    warn: $Barakeh-warn,
+  )
+));
+
+
+@include mat.all-component-themes($Barakeh-theme);
+
